@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+    <import resource="toshibacontext.xml" />
+	<import resource="sony_context.xml" />
+
+
+
+	<bean id="t1000" class="t1000.T1000" parent="BaseModel">
+	
+		<constructor-arg type="String" value="silver" index="3"></constructor-arg>
+		<constructor-arg type="int" value="2005" index="4"></constructor-arg>
+		<constructor-arg type="boolean" value="true" index="5"></constructor-arg>
+	</bean>
+	
+	<bean id="t1000Empty" class="t1000.T1000">
+		
+		<constructor-arg ref="sonyhand"></constructor-arg>
+		<constructor-arg ref="sonyleg"></constructor-arg>
+		<constructor-arg ref="sonyhead"></constructor-arg>
+	</bean>
+	
+	
+	
+	
+	
+	<bean id="BaseModel" abstract="true">
+		
+		<constructor-arg index="0" ref="sonyhand"></constructor-arg>
+		<constructor-arg index="1" ref="sonyleg"></constructor-arg>
+		<constructor-arg index="2" ref="sonyhead"></constructor-arg>
+	
+	</bean>
+</beans>
